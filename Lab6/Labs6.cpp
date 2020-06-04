@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <time.h>
 #include <stack>
 #include "header.h"
@@ -20,10 +20,10 @@ int main() {
     }
 
     cout << "Позиция элемента 10 - " << Search(len, 10, array) << endl;
-    cout << "Позиция элемента 10 - " << Search(len, -10, array) << endl;
-    cout << "Позиция элемента 10 - " << Search(len, 0, array) << endl;
-    cout << "Позиция элемента 10 - " << Search(len, 1000, array) << endl;
-    cout << "Позиция элемента 10 - " << Search(len, -1000, array) << endl;
+    cout << "Позиция элемента -10 - " << Search(len, -10, array) << endl;
+    cout << "Позиция элемента 0 - " << Search(len, 0, array) << endl;
+    cout << "Позиция элемента 1000 - " << Search(len, 1000, array) << endl;
+    cout << "Позиция элемента -1000 - " << Search(len, -1000, array) << endl;
     
     // 2
     /*2. Реализовать алгоритм быстрой сортировки массива QuickSort(), массив Array[N] состоит из случайных элементов (от -10 до 10), длины N=100.
@@ -65,16 +65,16 @@ int main() {
     recursionQuickSort(arrayThree, 0, len-1);
     cout << "Отсортированный массив";
     Print(arrayThree, len);
-    cout << "Поиск числа 101" << endl;
+    cout << "Поиск числа 95" << endl;
     cout << "результат рекурсивного поиска" << endl;
-    cout << recursionBSearch(arrayThree, 0, len-1, 101) << endl;
+    cout << recursionBSearch(arrayThree, 0, len-1, 95) << endl;
     cout << "результат нерекурсивного поиска" << endl;
-    cout << nonRecursionBSearch(arrayThree, 0, len-1, 101) << endl;
-    cout << "Поиск числа 3" << endl;
+    cout << nonRecursionBSearch(arrayThree, 0, len-1, 95) << endl;
+    cout << "Поиск числа 7" << endl;
     cout << "результат рекурсивного поиска" << endl;
-    cout << recursionBSearch(arrayThree, 0, len-1, 3) << endl;
+    cout << recursionBSearch(arrayThree, 0, len-1, 7) << endl;
     cout << "результат нерекурсивного поиска" << endl;
-    cout << nonRecursionBSearch(arrayThree, 0, len-1, 3) << endl;
+    cout << nonRecursionBSearch(arrayThree, 0, len-1, 7) << endl;
 
     // 4
     /*4. Сравнить скороость выполнения поиска элемента в неотсортирвоанном и отсортированном массиве
@@ -87,17 +87,17 @@ int main() {
     for (int i = 0; i<len; i++) {
         arrayFour[i] = rand() % 2001 -1000;
     }
-    // Для неотсортированного
+    // Поиск в неотсортированном массиве
     auto beginFirst = chrono::steady_clock::now();
-    Search(len, 100, arrayFour);
+    Search(len, 50, arrayFour);
     auto endFirst = chrono::steady_clock::now();
     auto timeFirst = chrono::duration_cast<chrono::nanoseconds>(endFirst - beginFirst);
     cout << "Поиск в неотсортированном массиве занял " <<timeFirst.count() << " нс" << endl;
 
     recursionQuickSort(arrayFour, 0, len-1);
-    // Для отсортированного
+    // Поиск в отсортированном массиве
     auto beginSecond = chrono::steady_clock::now();
-    recursionBSearch(arrayFour, 0, len-1, 100);
+    recursionBSearch(arrayFour, 0, len-1, 50);
     auto endSecond = chrono::steady_clock::now();
     auto timeSecond = chrono::duration_cast<chrono::nanoseconds>(endSecond - beginSecond);
     cout << "Поиск в отсортированном массиве занял " << timeSecond.count() << " нс" << endl;

@@ -27,7 +27,7 @@ int Search(int len, int value, int* array){
 //2
 void recursionQuickSort(int *array, int left, int right){
     int index =(left+right)/2;
-    int bearing = array[left]; // опорный элемент
+    int bearing = array[left];
     int leftBorder = left;
     int rightBorder = right;
 
